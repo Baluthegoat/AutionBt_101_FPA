@@ -9,23 +9,50 @@ interface Room {
   highestBid: number;
 }
 
-const mockRooms: Room[] = [
-  { name: "Cars", users: 0, highestBid: 0 },
-  { name: "Artifacts", users: 0, highestBid: 0 },
-  { name: "Rare Arts", users: 0, highestBid: 0 },
-  { name: "Antique Furniture", users: 0, highestBid: 0 },
-  { name: "Vintage Watches", users: 0, highestBid: 0 },
-  { name: "Collectible Coins", users: 0, highestBid: 0 },
-  { name: "Rare Books", users: 0, highestBid: 0 },
-  { name: "Sports Memorabilia", users: 0, highestBid: 0 },
-  { name: "Fine Jewelry", users: 0, highestBid: 0 },
-  { name: "Classic Cars", users: 0, highestBid: 0 },
-  { name: "Vintage Wine", users: 0, highestBid: 0 },
-  { name: "Rare Stamps", users: 0, highestBid: 0 },
-  { name: "Art Deco Pieces", users: 0, highestBid: 0 },
-  { name: "Historical Documents", users: 0, highestBid: 0 },
-  { name: "Vintage Advertising", users: 0, highestBid: 0 },
-];
+const Rooms: Room[] = [];
+
+const Page: React.FC = () => {
+  const [data, setData] = useState<Room[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/auctions', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json'},
+          body: JSON.stringify(Rooms)
+        }
+        )
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log('Fetched Data:', data);
+        setData(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        // setError(error.message);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Available Rooms</h1>
+        {error && <p>Error: {error}</p>}
+        <ul>
+          {data.map((room) => (
+            <li key={room.name}>{room.name}</li>
+          ))}
+        </ul>
+      </header>
+    </div>
+  );
+};
+
 
 const Button: React.FC<{
   onClick?: () => void;
@@ -98,13 +125,13 @@ export default function Home() {
             Auction Rooms
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {mockRooms.map((room) => (
+            {/* {mockRooms.map((room) => (
               <RoomCard
                 key={room.name}
                 room={room}
                 onClick={() => setSelectedRoom(room)}
               />
-            ))}
+            ))} */}
           </div>
         </section>
       </main>
@@ -115,3 +142,7 @@ export default function Home() {
     </div>
   );
 }
+function useEffect(arg0: () => void, arg1: never[]) {
+  throw new Error("Function not implemented.");
+}
+
