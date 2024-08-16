@@ -18,10 +18,9 @@ const Page: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/auctions', {
+        const response = await fetch('http://localhost:3000/auction', {
           method: 'GET',
           headers: { 'Content-Type': 'application/json'},
-          body: JSON.stringify(Rooms)
         }
         )
         if (!response.ok) {
@@ -32,7 +31,6 @@ const Page: React.FC = () => {
         setData(data);
       } catch (error) {
         console.error('Error fetching data:', error);
-        // setError(error.message);
       }
     };
     fetchData();
@@ -97,7 +95,7 @@ export default function Home() {
       <header className="bg-white shadow-md fixed top-0 left-0 right-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <span className="text-2xl font-bold text-purple-600">
-            RabsAuction
+            AuctionBT
           </span>
           <div className="flex items-center">
             <Button
@@ -113,27 +111,27 @@ export default function Home() {
       {/* Main content */}
       <main className="flex-grow flex flex-col items-center justify-center pt-20 px-4">
         <h1 className="text-6xl font-bold text-white text-center mb-4">
-          RabsAuction Rooms
+          AuctionBT Rooms
         </h1>
         <p className="text-xl text-white italic mb-8 max-w-lg text-center">
           Explore our exciting auction rooms and start bidding today!
         </p>
 
         {/* Auction Rooms Grid */}
-        <section className="w-full max-w-6xl bg-white rounded-xl shadow-lg p-8 mb-16">
+        {/* <section className="w-full max-w-6xl bg-white rounded-xl shadow-lg p-8 mb-16">
           <h2 className="text-3xl font-semibold mb-4 text-gray-800">
             Auction Rooms
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* {mockRooms.map((room) => (
+            {mockRooms.map((room) => (
               <RoomCard
                 key={room.name}
                 room={room}
                 onClick={() => setSelectedRoom(room)}
               />
-            ))} */}
+            ))}
           </div>
-        </section>
+        </section> */}
       </main>
 
       {selectedRoom && (
