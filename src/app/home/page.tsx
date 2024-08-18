@@ -49,7 +49,7 @@ function Page() {
   }> = ({ onClick, className, children }) => (
     <button
       onClick={onClick}
-      className={`px-4 py-2 rounded-lg transition duration-300 ${className}`}
+      className={`px-4 py-2 rounded-lg transition duration-100 ${className}`}
     >
       {children}
     </button>
@@ -59,11 +59,15 @@ function Page() {
     const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
 
     const handleSignOut = () => {
-      router.push("/SignOut");
+      router.push("/");
     };
 
     const handleCreateRoom = () => {
       router.push("/create-room");
+    };
+
+    const handleUpload = () => {
+      router.push("/upload");
     };
     return (
       <div className="flex flex-col min-h-screen bg-gradient-to-r from-purple-400 to-pink-500">
@@ -73,7 +77,14 @@ function Page() {
             <span className="text-2xl font-bold text-purple-600">
               AuctionBT
             </span>
+
             <div className="flex items-center">
+              <Button
+                onClick={handleUpload}
+                className="text-purple-600 hover:bg-purple-100 mr-2"
+              >
+                Upload Product
+              </Button>
               <Button
                 onClick={handleCreateRoom}
                 className="text-purple-600 hover:bg-purple-100 mr-2"
