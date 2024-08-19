@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { useRouter } from 'next/navigation';
-import { useState} from "react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 function CreateRoom() {
   const [name, setName] = useState("");
@@ -59,17 +59,21 @@ function CreateRoom() {
   };
 
   return (
-    <div>
-      <h1>Create Auction</h1>
-      {message && <p style={{ color: "green" }}>{message}</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
+    <div className="flex flex-col items-center justify-center min-h-screen py-8 bg-gray-50">
+      <h1 className="text-3xl font-semibold mb-6">Create Auction</h1>
+      {message && <p className="text-green-600 mb-4">{message}</p>}
+      {error && <p className="text-red-600 mb-4">{error}</p>}
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-md bg-white p-8 rounded shadow-md"
+      >
         <input
           type="text"
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="text"
@@ -77,12 +81,14 @@ function CreateRoom() {
           value={itemName}
           onChange={(e) => setItemName(e.target.value)}
           required
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <textarea
           placeholder="Item Description"
           value={itemDescription}
           onChange={(e) => setItemDescription(e.target.value)}
           required
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="number"
@@ -90,6 +96,7 @@ function CreateRoom() {
           value={itemStartingPrice}
           onChange={(e) => setItemStartingPrice(Number(e.target.value))}
           required
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="number"
@@ -97,6 +104,7 @@ function CreateRoom() {
           value={itemMinSellingPrice}
           onChange={(e) => setItemMinSellingPrice(Number(e.target.value))}
           required
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="number"
@@ -104,6 +112,7 @@ function CreateRoom() {
           value={itemMinIncrementBid}
           onChange={(e) => setItemMinIncrementBid(Number(e.target.value))}
           required
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="datetime-local"
@@ -111,6 +120,7 @@ function CreateRoom() {
           value={startTime}
           onChange={(e) => setStartTime(e.target.value)}
           required
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="datetime-local"
@@ -118,6 +128,7 @@ function CreateRoom() {
           value={endTime}
           onChange={(e) => setEndTime(e.target.value)}
           required
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="text"
@@ -125,8 +136,14 @@ function CreateRoom() {
           value={productId}
           onChange={(e) => setProductId(e.target.value)}
           required
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
-        <Button type="submit">Create Auction</Button>
+        <Button
+          type="submit"
+          className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          Create Auction
+        </Button>
       </form>
     </div>
   );

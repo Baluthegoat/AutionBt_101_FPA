@@ -45,23 +45,28 @@ function CreateProduct() {
   };
 
   return (
-    <div>
-      <h1>Create Product</h1>
-      {message && <p style={{ color: "green" }}>{message}</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
+    <div className="flex flex-col items-center justify-center min-h-screen py-8 bg-gray-50">
+      <h1 className="text-3xl font-semibold mb-6">Create Product</h1>
+      {message && <p className="text-green-600 mb-4">{message}</p>}
+      {error && <p className="text-red-600 mb-4">{error}</p>}
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-md bg-white p-8 rounded shadow-md"
+      >
         <input
           type="text"
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <textarea
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="text"
@@ -69,8 +74,14 @@ function CreateProduct() {
           value={image}
           onChange={(e) => setImage(e.target.value)}
           required
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
-        <Button type="submit">Create Product</Button>
+        <Button
+          type="submit"
+          className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          Create Product
+        </Button>
       </form>
     </div>
   );

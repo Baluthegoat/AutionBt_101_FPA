@@ -21,15 +21,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/home/page.js"
     ],
+    "/profile/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/profile/page.js"
+    ],
     "/upload/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/upload/page.js"
     ],
-    "/profile/page": [
+    "/create-room/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/profile/page.js"
+      "static/chunks/app/create-room/page.js"
     ]
   }
 }

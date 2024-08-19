@@ -1,4 +1,4 @@
-// File: C:\Users\User\Desktop\AutionBt_WEB101_FPA\src\app\signin\page.tsx
+// File: /home/tshering/Desktop/Web_auction/AutionBt_WEB101_FPA/src/app/signin/page.tsx
 import * as entry from '../../../../src/app/signin/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
