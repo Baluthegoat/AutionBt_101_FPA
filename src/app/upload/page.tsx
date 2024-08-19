@@ -18,7 +18,7 @@ function CreateProduct() {
     setMessage("");
 
     try {
-      const response = await fetch("http://localhost:3000/protected/product", {
+      const response = await fetch("http://localhost:3000/product", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,8 +32,16 @@ function CreateProduct() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to create product");
+        // Check if the response is JSON
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.includes("application/json")) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || "Failed to create product");
+        } else {
+          // Handle non-JSON error response
+          const errorText = await response.text();
+          throw new Error(errorText || "Failed to create product");
+        }
       }
 
       const data = await response.json();

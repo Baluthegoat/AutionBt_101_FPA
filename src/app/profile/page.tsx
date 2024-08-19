@@ -5,20 +5,20 @@ import React, { useEffect, useState } from "react";
 const UserProfile = () => {
   const [profilePicture, setProfilePicture] = useState("");
 
-  useEffect(() => {
-    // Array of cartoon avatar URLs
-    const avatars = [
-      "https://example.com/cartoon1.svg",
-      "https://example.com/cartoon2.svg",
-      "https://example.com/cartoon3.svg",
-      "https://example.com/cartoon4.svg",
-      "https://example.com/cartoon5.svg",
-    ];
+//   useEffect(() => {
+//     // Array of cartoon avatar URLs
+//     const avatars = [
+//       "https://example.com/cartoon1.svg",
+//       "https://example.com/cartoon2.svg",
+//       "https://example.com/cartoon3.svg",
+//       "https://example.com/cartoon4.svg",
+//       "https://example.com/cartoon5.svg",
+//     ];
 
     // Randomly select an avatar
-    const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
-    setProfilePicture(randomAvatar);
-  }, []);
+//     const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+//     setProfilePicture(randomAvatar);
+//   }, []);
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -40,7 +40,7 @@ const UserProfile = () => {
         </div>
       </div>
 
-      {/* Navigation Bar */}
+      {/* Navigation Bar
       <nav className="bg-white shadow-md mt-20">
         <div className="container mx-auto px-4 py-2 flex justify-center">
           <ul className="flex space-x-4">
@@ -86,7 +86,7 @@ const UserProfile = () => {
             </li>
           </ul>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Main Content Area */}
       <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row">
