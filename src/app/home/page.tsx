@@ -69,6 +69,10 @@ function Page() {
     const handleUpload = () => {
       router.push("/upload");
     };
+
+    const handleProfile = () =>{
+      router.push("/profile");
+    };
     return (
       <div className="flex flex-col min-h-screen bg-gradient-to-r from-purple-400 to-pink-500">
         {/* Header */}
@@ -79,6 +83,12 @@ function Page() {
             </span>
 
             <div className="flex items-center">
+            <Button
+                onClick={handleProfile}
+                className="text-purple-600 hover:bg-purple-100 mr-2"
+              >
+                Profile
+              </Button>
               <Button
                 onClick={handleUpload}
                 className="text-purple-600 hover:bg-purple-100 mr-2"
