@@ -18,7 +18,7 @@ function CreateProduct() {
     setMessage("");
 
     try {
-      const response = await fetch("http://localhost:3000/product", {
+      const response = await fetch("http://localhost:3000/protected/product", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

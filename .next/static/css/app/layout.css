@@ -891,6 +891,9 @@ body {
   .rounded-full {
   border-radius: 9999px;
 }
+  .rounded {
+  border-radius: 0.25rem;
+}
   .rounded-tl-sm {
   border-top-left-radius: calc(var(--radius) - 4px);
 }
@@ -970,6 +973,10 @@ body {
   .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+  .bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
   .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
@@ -1142,6 +1149,14 @@ body {
   .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+  .text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
+}
+  .text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
 }
   .underline-offset-4 {
   text-underline-offset: 4px;
