@@ -1,15 +1,15 @@
-// File: src/app/signup/page.tsx
-
 "use client";
-
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
+import femaleAvatar from "../assets/female.jpeg";
+import maleAvatar from "../assets/male.jpeg";
 
 interface FormData {
   name: string;
   email: string;
   password: string;
   phoneNumber: string;
+  avatar: string;
 }
 
 interface Errors {
@@ -17,6 +17,7 @@ interface Errors {
   email?: string;
   password?: string;
   phoneNumber?: string;
+  avatar?: string;
   form?: string;
 }
 
@@ -49,9 +50,11 @@ export default function SignUpPage() {
     name: '',
     email: '',
     password: '',
-    phoneNumber: ''
+    phoneNumber: '',
+    avatar: ''
   });
   const [errors, setErrors] = useState<Errors>({});
+  const avatars = [femaleAvatar, maleAvatar];
 
   const validateForm = (): boolean => {
     const newErrors: Errors = {};
@@ -59,6 +62,7 @@ export default function SignUpPage() {
     if (!formData.email) newErrors.email = "Email is required";
     if (!formData.password) newErrors.password = "Password is required";
     if (!formData.phoneNumber) newErrors.phoneNumber = "Phone Number is required";
+    if (!formData.avatar) newErrors.avatar = "Avatar is required";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -77,6 +81,7 @@ export default function SignUpPage() {
       if (response.ok) {
         console.log('Registration successful', data);
         router.push('/signin'); 
+      } else {
         console.error('Registration failed', data.message);
         setErrors({ form: data.message });
       }
@@ -90,6 +95,11 @@ export default function SignUpPage() {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     setErrors(prev => ({ ...prev, [name]: '', form: '' }));
+  };
+
+  const handleAvatarSelect = (avatar: string) => {
+    setFormData(prev => ({ ...prev, avatar }));
+    setErrors(prev => ({ ...prev, avatar: '', form: '' }));
   };
 
   return (
@@ -127,6 +137,21 @@ export default function SignUpPage() {
             placeholder="Phone Number"
             error={errors.phoneNumber}
           />
+          <div className="mb-4">
+            <label className="block text-gray-700 mb-2">Select Avatar</label>
+            <div className="flex space-x-4">
+              {avatars.map((avatar, index) => (
+                <img
+                  key={index}
+                  src={avatar.src}
+                  alt={`Avatar ${index + 1}`}
+                  className={`w-20 h-20 rounded-full cursor-pointer border-4 ${formData.avatar === avatar.src ? "border-blue-500" : "border-transparent"}`}
+                  onClick={() => handleAvatarSelect(avatar.src)}
+                />
+              ))}
+            </div>
+            {errors.avatar && <p className="mt-1 text-xs text-red-500">{errors.avatar}</p>}
+          </div>
           {errors.form && <p className="text-sm text-center text-red-500">{errors.form}</p>}
           <button
             type="submit"

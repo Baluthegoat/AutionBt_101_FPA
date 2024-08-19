@@ -38,10 +38,6 @@ function Page() {
     fetchData();
   }, []);
 
-  // const handleCreateRoom = () => {
-  //   router.push("/create-room");
-  // };
-
   const Button: React.FC<{
     onClick?: () => void;
     className?: string;
@@ -70,9 +66,10 @@ function Page() {
       router.push("/upload");
     };
 
-    const handleProfile = () =>{
+    const handleProfile = () => {
       router.push("/profile");
     };
+
     return (
       <div>
         {/* Header */}
@@ -83,7 +80,7 @@ function Page() {
             </span>
 
             <div className="flex items-center">
-            <Button
+              <Button
                 onClick={handleProfile}
                 className="text-purple-600 hover:bg-purple-100 mr-2"
               >
