@@ -34,6 +34,14 @@
     "/create-room/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+<<<<<<< HEAD
+=======
+      "static/chunks/app/profile/page.js"
+    ],
+    "/create-room/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+>>>>>>> e18f37d3cdbfc54b739eafbdc72f293fb29ae7ab
       "static/chunks/app/create-room/page.js"
     ]
   }

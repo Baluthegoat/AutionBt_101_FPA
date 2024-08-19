@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // File: /home/tshering/Desktop/Web_auction/AutionBt_WEB101_FPA/src/app/create-room/page.tsx
+=======
+// File: C:\Users\User\Desktop\AutionBt_WEB101_FPA\src\app\create-room\page.tsx
+>>>>>>> e18f37d3cdbfc54b739eafbdc72f293fb29ae7ab
 import * as entry from '../../../../src/app/create-room/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -221,7 +221,11 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+<<<<<<< HEAD
 var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc","vendor-chunks/tailwind-merge","vendor-chunks/@radix-ui","vendor-chunks/class-variance-authority","vendor-chunks/clsx","vendor-chunks/@babel"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fupload%2Fpage&page=%2Fupload%2Fpage&appPaths=%2Fupload%2Fpage&pagePath=private-next-app-dir%2Fupload%2Fpage.tsx&appDir=%2Fhome%2Ftshering%2FDesktop%2FWeb_auction%2FAutionBt_WEB101_FPA%2Fsrc%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2Fhome%2Ftshering%2FDesktop%2FWeb_auction%2FAutionBt_WEB101_FPA&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
+=======
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc","vendor-chunks/tailwind-merge","vendor-chunks/@radix-ui","vendor-chunks/class-variance-authority","vendor-chunks/clsx","vendor-chunks/@babel"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fupload%2Fpage&page=%2Fupload%2Fpage&appPaths=%2Fupload%2Fpage&pagePath=private-next-app-dir%2Fupload%2Fpage.tsx&appDir=C%3A%5CUsers%5CUser%5CDesktop%5CAutionBt_WEB101_FPA%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5CUser%5CDesktop%5CAutionBt_WEB101_FPA&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
+>>>>>>> e18f37d3cdbfc54b739eafbdc72f293fb29ae7ab
 module.exports = __webpack_exports__;
 
 })();

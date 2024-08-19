@@ -1,7 +1,14 @@
 {
   "/page": "app/page.js",
+<<<<<<< HEAD
   "/home/page": "app/home/page.js",
   "/profile/page": "app/profile/page.js",
   "/upload/page": "app/upload/page.js",
+=======
+  "/signin/page": "app/signin/page.js",
+  "/home/page": "app/home/page.js",
+  "/upload/page": "app/upload/page.js",
+  "/profile/page": "app/profile/page.js",
+>>>>>>> e18f37d3cdbfc54b739eafbdc72f293fb29ae7ab
   "/create-room/page": "app/create-room/page.js"
 }
