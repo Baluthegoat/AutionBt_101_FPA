@@ -683,6 +683,14 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+  .my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+  .mx-20 {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
   .mb-16 {
   margin-bottom: 4rem;
 }
@@ -770,6 +778,9 @@ body {
   .min-h-screen {
   min-height: 100vh;
 }
+  .min-h-\[80px\] {
+  min-height: 80px;
+}
   .w-10 {
   width: 2.5rem;
 }
@@ -790,9 +801,6 @@ body {
 }
   .w-max {
   width: max-content;
-}
-  .w-\[350px\] {
-  width: 350px;
 }
   .max-w-6xl {
   max-width: 72rem;
@@ -875,6 +883,11 @@ body {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+  .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
   .overflow-hidden {
   overflow: hidden;
@@ -1218,6 +1231,27 @@ body {
   animation-duration: 300ms;
 }
 
+  .file\:border-0::file-selector-button {
+  border-width: 0px;
+}
+
+  .file\:bg-transparent::file-selector-button {
+  background-color: transparent;
+}
+
+  .file\:text-sm::file-selector-button {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+  .file\:font-medium::file-selector-button {
+  font-weight: 500;
+}
+
+  .placeholder\:text-muted-foreground::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
   .hover\:bg-accent:hover {
   background-color: hsl(var(--accent));
 }
@@ -1336,6 +1370,10 @@ body {
 
   .disabled\:pointer-events-none:disabled {
   pointer-events: none;
+}
+
+  .disabled\:cursor-not-allowed:disabled {
+  cursor: not-allowed;
 }
 
   .disabled\:opacity-50:disabled {

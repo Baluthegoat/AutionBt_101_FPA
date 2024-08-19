@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const Button: React.FC<{ onClick?: () => void; className?: string; children: React.ReactNode }> = ({ onClick, className, children }) => (
-  <button
+  <Button
     onClick={onClick}
     className={`px-4 py-2 rounded-lg transition duration-300 ${className}`}
   >
     {children}
-  </button>
+  </Button>
 );
 
 const Card: React.FC<{ title: string; description: string; content: string }> = ({ title, description, content }) => (

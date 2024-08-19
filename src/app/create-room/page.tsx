@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { useRouter } from 'next/navigation';
-import { useState} from "react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -11,13 +11,19 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+
+
+
+
 function CreateRoom() {
   const [name, setName] = useState("");
   const [itemName, setItemName] = useState("");
   const [itemDescription, setItemDescription] = useState("");
-  const [itemStartingPrice, setItemStartingPrice] = useState(0);
-  const [itemMinSellingPrice, setItemMinSellingPrice] = useState(0);
-  const [itemMinIncrementBid, setItemMinIncrementBid] = useState(0);
+  const [itemStartingPrice, setItemStartingPrice] = useState(Number);
+  const [itemMinSellingPrice, setItemMinSellingPrice] = useState(Number);
+  const [itemMinIncrementBid, setItemMinIncrementBid] = useState(Number);
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [productId, setProductId] = useState("");
@@ -67,86 +73,87 @@ function CreateRoom() {
   };
 
   return (
-    <div  className="flex flex-col min-h-screen bg-gradient-to-r from-purple-400 to-pink-500">
-      <h1 className="bg-white shadow-md fixed top-0 left-0 right-0 z-10">Create Auction</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-400 to-pink-500">
+      
 
-      {message && <p style={{ color: "green" }}>{message}</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-       
-          <Card >
-          
-        
-          <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-
-          <input
-          type="text"
-          placeholder="Item Name"
-          value={itemName}
-          onChange={(e) => setItemName(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="Item Description"
-          value={itemDescription}
-          onChange={(e) => setItemDescription(e.target.value)}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Starting Price"
-          value={itemStartingPrice}
-          onChange={(e) => setItemStartingPrice(Number(e.target.value))}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Minimum Selling Price"
-          value={itemMinSellingPrice}
-          onChange={(e) => setItemMinSellingPrice(Number(e.target.value))}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Minimum Increment Bid"
-          value={itemMinIncrementBid}
-          onChange={(e) => setItemMinIncrementBid(Number(e.target.value))}
-          required
-        />
-        <input
-          type="datetime-local"
-          placeholder="Start Time"
-          value={startTime}
-          onChange={(e) => setStartTime(e.target.value)}
-          required
-        />
-        <input
-          type="datetime-local"
-          placeholder="End Time"
-          value={endTime}
-          onChange={(e) => setEndTime(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Product ID"
-          value={productId}
-          onChange={(e) => setProductId(e.target.value)}
-          required
-        />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <Card>
+          <CardHeader>
+            <CardTitle>Create New Auction</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4, ">
+            <Input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <Input
+              type="text"
+              placeholder="Item Name"
+              value={itemName}
+              onChange={(e) => setItemName(e.target.value)}
+              required
+            />
+            <Textarea
+              placeholder="Item Description"
+              value={itemDescription}
+              onChange={(e) => setItemDescription(e.target.value)}
+              required
+            />
+            <Input
+              type="number"
+              placeholder="Starting Price"
+              value={itemStartingPrice}
+              onChange={(e) => setItemStartingPrice (Number(e.target.value))}
+            />
+            <Input
+              type="number"
+              placeholder="Minimum Selling Price"
+              value={itemMinSellingPrice}
+              onChange={(e) => setItemMinSellingPrice(Number(e.target.value))}
+              required
+            />
+            <Input
+              type="number"
+              placeholder="Minimum Increment Bid"
+              value={itemMinIncrementBid}
+              onChange={(e) => setItemMinIncrementBid(Number(e.target.value))}
+              required
+            />
+            <Input
+              type="datetime-local"
+              placeholder="Start Time"
+              value={startTime}
+              onChange={(e) => setStartTime(e.target.value)}
+              required
+            />
+            <Input
+              type="datetime-local"
+              placeholder="End Time"
+              value={endTime}
+              onChange={(e) => setEndTime(e.target.value)}
+              required
+            />
+            <Input
+              type="text"
+              placeholder="Product ID"
+              value={productId}
+              onChange={(e) => setProductId(e.target.value)}
+              required
+            />
+          </CardContent>
+          <CardFooter>
+            <Button  className="bg-purple-600 text-white hover:bg-purple-700" type="submit">
+              Create Auction
+              </Button>
+          </CardFooter>
         </Card>
-        
-        
-        
-        <Button type="submit">Create Auction</Button>
-      </form>
+      </div>
     </div>
   );
 }
+
 
 export default CreateRoom;
