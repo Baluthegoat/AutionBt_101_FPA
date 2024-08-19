@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from "next/link";
+
 const Button: React.FC<{ onClick?: () => void; className?: string; children: React.ReactNode }> = ({ onClick, className, children }) => (
   <button
     onClick={onClick}
@@ -28,7 +28,7 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white shadow-md fixed top-0 left-0 right-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <span className="text-2xl font-bold text-purple-600">RabsAuction</span>
+          <span className="text-2xl font-bold text-purple-600">AuctionBT</span>
           <div>
             <Button onClick={() => router.push('/signin')} className="text-purple-600 hover:bg-purple-100 mr-2">
               Sign In
@@ -52,7 +52,7 @@ export default function Home() {
 
         {/* Why RabsAuction Section */}
         <section className="w-full max-w-6xl bg-white rounded-xl shadow-lg p-8 mb-16">
-          <h2 className="text-3xl font-semibold mb-4 text-gray-800">Why RabsAuction?</h2>
+          <h2 className="text-3xl font-semibold mb-4 text-gray-800">Why AuctionBT?</h2>
           <p className="text-xl mb-8 text-gray-600">We provide you with:</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card 
