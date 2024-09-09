@@ -76,9 +76,15 @@ const AuthPage: React.FC = () => {
 
     const endpoint = isLogin ? "/login" : "/signup";
     try {
+<<<<<<< HEAD
       const response = await fetch(`http://localhost:3000/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+=======
+      const response = await fetch(`http://localhost:3000${endpoint}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+>>>>>>> 162fbdf4add971fe84fde6a9f10f342a56cb1481
         body: JSON.stringify(formData),
       });
       const data = await response.json();

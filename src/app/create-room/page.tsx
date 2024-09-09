@@ -8,9 +8,9 @@ function CreateRoom() {
   const [name, setName] = useState("");
   const [itemName, setItemName] = useState("");
   const [itemDescription, setItemDescription] = useState("");
-  const [itemStartingPrice, setItemStartingPrice] = useState(0);
-  const [itemMinSellingPrice, setItemMinSellingPrice] = useState(0);
-  const [itemMinIncrementBid, setItemMinIncrementBid] = useState(0);
+  const [itemStartingPrice, setItemStartingPrice] = useState(Number);
+  const [itemMinSellingPrice, setItemMinSellingPrice] = useState(Number);
+  const [itemMinIncrementBid, setItemMinIncrementBid] = useState(Number);
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [productId, setProductId] = useState("");
@@ -87,7 +87,6 @@ function CreateRoom() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="text"
@@ -95,14 +94,12 @@ function CreateRoom() {
           value={itemName}
           onChange={(e) => setItemName(e.target.value)}
           required
-          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <textarea
           placeholder="Item Description"
           value={itemDescription}
           onChange={(e) => setItemDescription(e.target.value)}
           required
-          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="number"
@@ -110,7 +107,6 @@ function CreateRoom() {
           value={itemStartingPrice}
           onChange={(e) => setItemStartingPrice(Number(e.target.value))}
           required
-          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="number"
@@ -118,7 +114,6 @@ function CreateRoom() {
           value={itemMinSellingPrice}
           onChange={(e) => setItemMinSellingPrice(Number(e.target.value))}
           required
-          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="number"
@@ -126,7 +121,6 @@ function CreateRoom() {
           value={itemMinIncrementBid}
           onChange={(e) => setItemMinIncrementBid(Number(e.target.value))}
           required
-          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="datetime-local"
@@ -134,7 +128,6 @@ function CreateRoom() {
           value={startTime}
           onChange={(e) => setStartTime(e.target.value)}
           required
-          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="datetime-local"
@@ -142,7 +135,6 @@ function CreateRoom() {
           value={endTime}
           onChange={(e) => setEndTime(e.target.value)}
           required
-          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
         <input
           type="text"
@@ -150,14 +142,8 @@ function CreateRoom() {
           value={productId}
           onChange={(e) => setProductId(e.target.value)}
           required
-          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
-        <Button
-          type="submit"
-          className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
-          Create Auction
-        </Button>
+        <Button type="submit">Create Auction</Button>
       </form>
     </div>
   );

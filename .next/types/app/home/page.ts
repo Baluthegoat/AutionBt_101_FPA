@@ -1,5 +1,15 @@
+<<<<<<< HEAD
+<<<<<<<< HEAD:.next/types/app/home/page.ts
 // File: C:\Users\User\Desktop\AutionBt_WEB101_FPA\src\app\home\page.tsx
 import * as entry from '../../../../src/app/home/page.js'
+========
+// File: /Users/sonamdorjighalley/Desktop/WEB final project/AutionBt_WEB101_FPA/src/app/page.tsx
+import * as entry from '../../../src/app/page.js'
+>>>>>>>> 162fbdf4add971fe84fde6a9f10f342a56cb1481:.next/types/app/page.ts
+=======
+// File: /Users/sonamdorjighalley/Desktop/WEB final project/AutionBt_WEB101_FPA/src/app/home/page.tsx
+import * as entry from '../../../../src/app/home/page.js'
+>>>>>>> 162fbdf4add971fe84fde6a9f10f342a56cb1481
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
 type TEntry = typeof import('../../../../src/app/home/page.js')

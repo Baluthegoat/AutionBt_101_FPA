@@ -71,7 +71,7 @@ function Page() {
     };
 
     return (
-      <div className="flex flex-col min-h-screen bg-gradient-to-r from-purple-400 to-pink-500">
+      <div>
         {/* Header */}
         <header className="bg-white shadow-md fixed top-0 left-0 right-0 z-10">
           <div className="container mx-auto px-4 py-4 flex justify-between items-center">
