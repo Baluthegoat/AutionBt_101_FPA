@@ -1,23 +1,21 @@
-"use client"; // Add this line
-
+"use client";
 import React, { useEffect, useState } from "react";
 
 const UserProfile = () => {
   const [profilePicture, setProfilePicture] = useState("");
 
   useEffect(() => {
-    // Array of cartoon avatar URLs
-    const profilePicture = [
-      "https://example.com/cartoon1.svg",
-      "https://example.com/cartoon2.svg",
-      "https://example.com/cartoon3.svg",
-      "https://example.com/cartoon4.svg",
-      "https://example.com/cartoon5.svg",
-    ];
-
-    // Randomly select an avatar
-    const randomprofilePicture = profilePicture[Math.floor(Math.random() * profilePicture.length)];
-    setProfilePicture(randomprofilePicture);
+    // Retrieve avatar URL from local storage
+    const storedAvatar = localStorage.getItem("avatar");
+    if (storedAvatar) {
+      setProfilePicture(storedAvatar);
+    } else {
+      // Fallback to a default avatar if none is found in local storage
+      const defaultAvatars = ["../assets/female.png", "../assets/male.png"];
+      const randomAvatar =
+        defaultAvatars[Math.floor(Math.random() * defaultAvatars.length)];
+      setProfilePicture(randomAvatar);
+    }
   }, []);
 
   return (

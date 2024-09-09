@@ -1,9 +1,9 @@
 // File: src/pages/api/rooms.ts
 
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from "next";
 
 // Import the rooms object from the WebSocket server
-const { rooms } = require('../../../server');
+const { rooms } = require("../../../server");
 
 interface Room {
   name: string;
@@ -12,7 +12,7 @@ interface Room {
 }
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
-  const roomData: Room[] = Object.keys(rooms).map(roomName => ({
+  const roomData: Room[] = Object.keys(rooms).map((roomName) => ({
     name: roomName,
     users: rooms[roomName].clients.size,
     highestBid: rooms[roomName].highestBid,

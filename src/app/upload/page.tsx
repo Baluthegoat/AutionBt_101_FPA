@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import Cookies from "js-cookie";
 
 function CreateProduct() {
   const [name, setName] = useState("");
@@ -17,12 +18,19 @@ function CreateProduct() {
     setError("");
     setMessage("");
 
+    const token = Cookies.get("jwt");
+
+    if (!token) {
+      setError("User is not authenticated.");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:3000/protected/product", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           name,

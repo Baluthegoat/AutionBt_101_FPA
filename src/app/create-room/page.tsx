@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 function CreateRoom() {
   const [name, setName] = useState("");
@@ -23,6 +24,12 @@ function CreateRoom() {
     setError("");
     setMessage("");
 
+    const token = Cookies.get("jwt");
+    if (!token) {
+      setError("User is not authenticated.");
+      return;
+    }
+
     try {
       const response = await fetch(
         "http://localhost:3000/protected/auction/create",
@@ -30,7 +37,7 @@ function CreateRoom() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             name,
@@ -47,20 +54,18 @@ function CreateRoom() {
       );
 
       if (!response.ok) {
-        // Check if the response is JSON
         const contentType = response.headers.get("content-type");
         if (contentType && contentType.includes("application/json")) {
           const errorData = await response.json();
           throw new Error(errorData.message || "Failed to create auction");
         } else {
-          // Handle non-JSON error response
           const errorText = await response.text();
           throw new Error(errorText || "Failed to create auction");
         }
       }
 
       const data = await response.json();
-      setMessage("Auction created successfully!");
+      setMessage("Auction created successfully");
       console.log(data);
     } catch (error) {
       setError((error as Error).message);
@@ -74,7 +79,7 @@ function CreateRoom() {
       {error && <p className="text-red-600 mb-4">{error}</p>}
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md bg-white p-8 rounded shadow-md"
+        className="w-full max-w-md bg-gradient-to-r from-purple-400 to-pink-500 p-8 rounded shadow-md"
       >
         <input
           type="text"
@@ -157,5 +162,5 @@ function CreateRoom() {
     </div>
   );
 }
-
+ 
 export default CreateRoom;
